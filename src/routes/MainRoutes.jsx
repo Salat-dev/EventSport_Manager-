@@ -3,6 +3,13 @@ import { lazy } from 'react';
 // project imports
 import MainLayout from 'layout/MainLayout';
 import Loadable from 'ui-component/Loadable';
+import CoachPage from 'views/participant-page/coach';
+import OfficielPage from 'views/participant-page/officiel';
+import ArbitrePage from 'views/participant-page/arbitre';
+import StatBoard from 'views/statistiques';
+import ListeAthlete from 'views/liste-participant/List-athlete';
+import Tirage from 'views/Tirage_au_sort/draws';
+//import AthletePage from 'views/participant/athletes';
 
 // dashboard routing
 const DashboardDefault = Loadable(lazy(() => import('views/dashboard')));
@@ -16,6 +23,8 @@ const UtilsShadow = Loadable(lazy(() => import('views/utilities/Shadow')));
 
 // sample page routing
 const SamplePage = Loadable(lazy(() => import('views/sample-page')));
+const AthletePage = Loadable(lazy(() => import('views/participant-page/athletes')));
+
 
 // ==============================|| MAIN ROUTING ||============================== //
 
@@ -25,14 +34,14 @@ const MainRoutes = {
   children: [
     {
       path: '/',
-      element: <DashboardDefault />
+      element: <StatBoard />
     },
     {
       path: 'dashboard',
       children: [
         {
           path: 'default',
-          element: <DashboardDefault />
+          element: <StatBoard />
         }
       ]
     },
@@ -63,28 +72,60 @@ const MainRoutes = {
         }
       ]
     },
-    // {
-    //   path: 'icons',
-    //   children: [
-    //     {
-    //       path: 'tabler-icons',
-    //       element: <UtilsTablerIcons />
-    //     }
-    //   ]
-    // },
-    // {
-    //   path: 'icons',
-    //   children: [
-    //     {.
-    //       path: 'material-icons',
-    //       element: <UtilsMaterialIcons />
-    //     }
-    //   ]
-    // },
+   
     {
       path: 'sample-page',
       element: <SamplePage />
+    },
+     {
+      path: '/',
+      children: [
+        {
+          path: 'athletes',
+          element: <AthletePage />
+        }
+      ]
     }
+    ,
+     {
+      path: '/',
+      children: [
+        {
+          path: 'coach',
+          element: <CoachPage />
+        }
+      ]
+    }
+    ,
+    {
+     path: '/',
+     children: [
+       {
+         path: 'officiel',
+         element: <OfficielPage />
+       }
+     ]
+   }
+   ,
+   {
+    path: '/',
+    children: [
+      {
+        path: 'arbitre',
+        element: <ArbitrePage />
+      }
+    ]
+  },
+  {
+    path: 'List-athlete',
+    element: <ListeAthlete />
+  }
+  ,
+  {
+    path: 'draws',
+    element: <Tirage/>
+  }
+    
   ]
 };
 
