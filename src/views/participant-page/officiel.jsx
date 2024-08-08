@@ -8,7 +8,7 @@ import ListAltRoundedIcon from '@mui/icons-material/ListAltRounded';// =========
 import OfficielForm from 'ui-component/form2/formulaire-officiels';
 
 const OfficielPage = () => (
-  <MainCard title="Enregistrez les Informations du coach" >
+  <MainCard title="Enregistrez les Informations de l'officiel" >
     <Button  style={{ position: 'relative', top: '-80px', marginLeft: '700px' }} variant="contained" startIcon={<ListAltRoundedIcon />}>
  Afficher la Liste
 </Button>
