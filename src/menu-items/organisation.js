@@ -2,6 +2,7 @@
 import GroupsIcon from '@mui/icons-material/Groups';
 import ConfirmationNumberIcon from '@mui/icons-material/ConfirmationNumber';
 import ConnectingAirportsIcon from '@mui/icons-material/ConnectingAirports';
+import ConfirmationNumberOutlinedIcon from '@mui/icons-material/ConfirmationNumberOutlined';
 
 // constant
 const icons = {
@@ -9,12 +10,13 @@ const icons = {
   GroupsIcon,
   ConfirmationNumberIcon,
   ConnectingAirportsIcon,
+  ConfirmationNumberOutlinedIcon
 };
 
 // ==============================|| UTILITIES MENU ITEMS ||============================== //
 
 const organisation= {
-  id: 'Complement',
+  id: 'orga',
   title: 'Complement',
   caption: 'Pages complement event',
   type: 'group',
@@ -32,17 +34,43 @@ const organisation= {
       title: 'Billeterie',
       type: 'item',
       url: '/utils/util-color',
-      icon: icons.ConfirmationNumberIcon,
+      icon: icons.ConfirmationNumberOutlinedIcon,
       breadcrumbs: false
     },
     {
-      id: 'util-shadow',
+      id: 'authentication',
       title: 'Logistique',
-      type: 'item',
-      url: '/utils/util-shadow',
+      type: 'collapse',
       icon: icons.ConnectingAirportsIcon,
-      breadcrumbs: false
+
+      children: [
+        {
+          id: 'login3',
+          title: 'Hotel',
+          type: 'item',
+          url: '',
+        breadcrumbsClasses: false ,
+              
+            },
+        {
+          id: 'register3',
+          title: 'Transport',
+          type: 'item',
+          url: '',
+          breadcrumbsClasses: false ,    
+        },
+        {
+          id: 'register3',
+          title: 'Autres',
+          type: 'item',
+          url: '',
+          breadcrumbsClasses: false      
+
+        },
+      ]
+
     }
+   
   ]
 };
 

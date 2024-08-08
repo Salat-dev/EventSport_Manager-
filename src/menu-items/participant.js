@@ -3,12 +3,16 @@ import { IconKey } from '@tabler/icons-react';
 import GroupAddRoundedIcon from '@mui/icons-material/GroupAddRounded';
 import EmojiEventsOutlinedIcon from '@mui/icons-material/EmojiEventsOutlined';
 import FolderOpenOutlinedIcon from '@mui/icons-material/FolderOpenOutlined';
+import CalendarMonthOutlinedIcon from '@mui/icons-material/CalendarMonthOutlined';
+import ListOutlinedIcon from '@mui/icons-material/ListOutlined';
 // constant
 const icons = {
   IconKey,
   GroupAddRoundedIcon,
   EmojiEventsOutlinedIcon,
   FolderOpenOutlinedIcon,
+  CalendarMonthOutlinedIcon,
+  ListOutlinedIcon
 };
 
 // ==============================|| EXTRA PAGES MENU ITEMS ||============================== //
@@ -44,7 +48,7 @@ const pages = {
           id: 'register3',
           title: 'Officiels',
           type: 'item',
-          url: 'officiel',
+          url: '/officiel',
           breadcrumbsClasses: false      
 
         },
@@ -52,7 +56,7 @@ const pages = {
           id: 'register3',
           title: 'Arbitres',
           type: 'item',
-          url: 'arbitre',          
+          url: '/arbitre',          
           breadcrumbsClasses: false      
 
         }
@@ -91,12 +95,21 @@ const pages = {
           },
           {
             id: 'util-shadow',
+            title: 'Note tirage au sort ',
+            type: 'item',
+            url: '/utils/util-shadow',
+            icon: icons.ConnectingAirportsIcon,
+            breadcrumbs: false
+          },
+          {
+            id: 'util-shadow',
             title: 'Classement',
             type: 'item',
             url: '/utils/util-shadow',
             icon: icons.ConnectingAirportsIcon,
             breadcrumbs: false
-          }
+          },
+
         ]      
             },
         {
@@ -107,7 +120,72 @@ const pages = {
           breadcrumbs: false ,    
         }
       ]
-    }
+    },
+
+    // ============================SHOW LIST PARTICIPANT=================================
+    {
+      id: 'authentication',
+      title: 'Listes',
+      type: 'collapse',
+      icon: icons.ListOutlinedIcon,
+
+      children: [
+        {
+          id: 'login3',
+          title: 'Liste des athlètes',
+          type: 'collapse',
+        breadcrumbsClasses: false ,
+               children: [
+                {
+                  id: 'register3',
+                  title: 'Liste par club/pays',
+                  type: 'item',
+                  url: '/List-arbitre',
+                  breadcrumbsClasses: false ,    
+                },
+                {
+                  id: 'register3',
+                  title: 'Liste par catègorie',
+                  type: 'item',
+                  url: '/List-athlete',
+                  breadcrumbsClasses: false ,    
+                }
+               ]
+            },
+        {
+          id: 'register3',
+          title: 'Liste des coachs',
+          type: 'item',
+          url: '/List-coach',
+          breadcrumbsClasses: false ,    
+        },
+        {
+          id: 'register3',
+          title: 'Liste des officiels',
+          type: 'item',
+          url: '/List-officiel',
+          breadcrumbsClasses: false      
+
+        },
+        {
+          id: 'register3',
+          title: 'Liste des arbitres',
+          type: 'item',
+          url: '/List-arbitre',          
+          breadcrumbsClasses: false      
+
+        }
+      ]
+
+    },
+    {
+      id: 'cal',
+      title: 'Agenda',
+      type: 'item',
+      url: '/calendar',
+      icon: icons.CalendarMonthOutlinedIcon,
+    breadcrumbs: false      
+        },
 
   ]
 };

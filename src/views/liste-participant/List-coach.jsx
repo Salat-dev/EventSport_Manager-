@@ -9,10 +9,10 @@ import AddIcon from '@mui/icons-material/Add';
 // ==============================|| SAMPLE PAGE ||============================== //
 
 
-const ListeAthlete = () => (
+const ListeCoach = () => (
    { breadcrumbsClasses: true},
 
-  <MainCard title="Liste des athlètes">
+  <MainCard title="Liste des coach">
      <Button  style={{ position: 'relative', top: '-80px', marginLeft: '700px' }} variant="outlined" startIcon={<AddIcon/>}>
 Ajouter
 </Button>
@@ -22,4 +22,4 @@ Ajouter
   </MainCard>
 );
 
-export default ListeAthlete;
+export default ListeCoach;
