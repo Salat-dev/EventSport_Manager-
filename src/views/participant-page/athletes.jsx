@@ -5,7 +5,10 @@ import Typography from '@mui/material/Typography';
 import MainCard from 'ui-component/cards/MainCard';
 import App from 'ui-component/form2/formulaire';
 import { Button } from '@mui/material';
-import ListAltRoundedIcon from '@mui/icons-material/ListAltRounded';// ==============================|| SAMPLE PAGE ||============================== //
+import ListAltRoundedIcon from '@mui/icons-material/ListAltRounded';
+import SnackbarCloseReason from 'ui-component/snacbar/Snabar';
+
+// ==============================|| SAMPLE PAGE ||============================== //
 
 const AthletePage = () => (
   <MainCard title="Enregistrez les Informations de l'athlète" >
