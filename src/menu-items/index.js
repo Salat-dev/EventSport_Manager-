@@ -6,11 +6,13 @@ import other from './other';
 import participant from './participant';
 import organisation from './organisation';
 import tools from './tools'
+import event from './event'
+import inscription from './Inscrire équipe';
 
 // ==============================|| MENU ITEMS ||============================== //
 
 const menuItems = {
-  items: [dashboard,participant,organisation, tools ,pages, utilities, other]
+  items: [event, inscription, dashboard,participant,organisation, tools ,pages, utilities, other]
 };
 
 export default menuItems;

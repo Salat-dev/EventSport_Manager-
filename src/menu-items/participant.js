@@ -182,7 +182,7 @@ const pages = {
       id: 'cal',
       title: 'Agenda',
       type: 'item',
-      url: '/calendar',
+      url: '',
       icon: icons.CalendarMonthOutlinedIcon,
     breadcrumbs: false      
         },
