@@ -7,9 +7,7 @@ import {
   InputNumber,
   Radio,
   Select,
-  Switch,
-  TreeSelect,
-  Upload,
+  Upload
   
 } from 'antd';
 import { Button } from '@mui/material';
@@ -35,14 +33,14 @@ const App = () => {
       wrapperCol={{
         span: 14,
       }}
-      layout="horizontal"
+      layout="vertical"
       initialValues={{
         size: componentSize,
       }}
       onValuesChange={onFormLayoutChange}
       size={componentSize}
       style={{
-        maxWidth: 600,
+        maxWidth: 1000,
       }}
     >
       <Form.Item label="Form Size" name="size">

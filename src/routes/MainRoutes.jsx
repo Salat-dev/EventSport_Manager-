@@ -9,10 +9,11 @@ import ArbitrePage from 'views/participant-page/arbitre';
 import StatBoard from 'views/statistiques';
 import ListeAthlete from 'views/liste-participant/List-athlete';
 import Tirage from 'views/Tirage_au_sort/draws';
-import CalendarPage from 'views/pages/calendar/calendar';
 import ListeArbitre from 'views/liste-participant/List-arbitre';
 import ListeCoach from 'views/liste-participant/List-coach';
 import ListeOfficiel from 'views/liste-participant/List-officiel';
+import EventPage from 'views/participant-page/evenement';
+import EquipePage from 'views/participant-page/equipe';
 //import AthletePage from 'views/participant/athletes';
 
 // dashboard routing
@@ -89,8 +90,7 @@ const MainRoutes = {
           element: <AthletePage />
         }
       ]
-    }
-    ,
+    },
      {
       path: '/',
       children: [
@@ -99,8 +99,16 @@ const MainRoutes = {
           element: <CoachPage />
         }
       ]
-    }
-    ,
+    },
+     {
+      path: '/',
+      children: [
+        {
+          path: 'evenement',
+          element: <EventPage />
+        }
+      ]
+    },
     {
      path: '/',
      children: [
@@ -109,8 +117,17 @@ const MainRoutes = {
          element: <OfficielPage />
        }
      ]
-   }
+   },
    ,
+    {
+     path: '/',
+     children: [
+       {
+         path: 'equipe',
+         element: <EquipePage />
+       }
+     ]
+   },
    {
     path: '/',
     children: [
@@ -142,10 +159,6 @@ const MainRoutes = {
   {
     path: 'draws',
     element: <Tirage/>
-  },
-  {
-    path: 'calendar',
-    element: <CalendarPage/>
   }
   
     
