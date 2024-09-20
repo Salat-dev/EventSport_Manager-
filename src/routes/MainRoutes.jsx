@@ -8,7 +8,7 @@ import OfficielPage from 'views/participant-page/officiel';
 import ArbitrePage from 'views/participant-page/arbitre';
 import StatBoard from 'views/statistiques';
 import ListeAthlete from 'views/liste-participant/List-athlete';
-import Tirage from 'views/Tirage_au_sort/liste_option';
+//import Tirage from 'views/Tirage_au_sort/liste_option';
 import ListeArbitre from 'views/liste-participant/list_par_club';
 import ListeCoach from 'views/liste-participant/List-coach';
 import ListeOfficiel from 'views/liste-participant/List-officiel';
@@ -214,12 +214,7 @@ const MainRoutes = {
   {
     path: 'List-officiel',
     element: <ListeOfficiel />
-  },
-  {
-    path: 'draws',
-    element: <Tirage/>
   }
-  
     
   ]
 };
