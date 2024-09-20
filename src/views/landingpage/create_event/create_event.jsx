@@ -14,8 +14,6 @@ import CarouselComponent from '../carousel-component';
 
 const EventPage = () => (
   <MainCard  >
-     <MenueList > </MenueList>
-     <CarouselComponent style={{ padding: '50px' }} />
    
     <EventFom />
   </MainCard>

@@ -133,24 +133,10 @@ const pages = {
         {
           id: 'login3',
           title: 'Liste des athlètes',
-          type: 'collapse',
+          type: 'item',
+          url: '/List-athlete',
         breadcrumbsClasses: false ,
-               children: [
-                {
-                  id: 'register3',
-                  title: 'Liste par club/pays',
-                  type: 'item',
-                  url: '/List-arbitre',
-                  breadcrumbsClasses: false ,    
-                },
-                {
-                  id: 'register3',
-                  title: 'Liste par catègorie',
-                  type: 'item',
-                  url: '/List-athlete',
-                  breadcrumbsClasses: false ,    
-                }
-               ]
+               
             },
         {
           id: 'register3',
@@ -182,7 +168,7 @@ const pages = {
       id: 'cal',
       title: 'Agenda',
       type: 'item',
-      url: '',
+      url: '/calendar',
       icon: icons.CalendarMonthOutlinedIcon,
     breadcrumbs: false      
         },

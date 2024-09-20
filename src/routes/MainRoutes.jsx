@@ -8,12 +8,19 @@ import OfficielPage from 'views/participant-page/officiel';
 import ArbitrePage from 'views/participant-page/arbitre';
 import StatBoard from 'views/statistiques';
 import ListeAthlete from 'views/liste-participant/List-athlete';
-import Tirage from 'views/Tirage_au_sort/draws';
-import ListeArbitre from 'views/liste-participant/List-arbitre';
+import Tirage from 'views/Tirage_au_sort/liste_option';
+import ListeArbitre from 'views/liste-participant/list_par_club';
 import ListeCoach from 'views/liste-participant/List-coach';
 import ListeOfficiel from 'views/liste-participant/List-officiel';
 import EventPage from 'views/participant-page/evenement';
-import EquipePage from 'views/participant-page/equipe';
+import KarateScorePanel from 'views/panel/panel';
+import TournamentBracket from 'views/panel/tirage';
+import EventPageList from 'views/liste-participant/evenements';
+import CalendarPage from 'views/calendar/calendar';
+import CalendarEventPage from 'views/calendar/evenement_list';
+import EquipePage from 'views/participant-page/enregistrement';
+import ClubPage from 'views/participant-page/club_registration';
+import ListeAthleteTotal from 'views/liste-participant/list_total_athlete';
 //import AthletePage from 'views/participant/athletes';
 
 // dashboard routing
@@ -77,7 +84,15 @@ const MainRoutes = {
         }
       ]
     },
-   
+    {
+      path: '/',
+      children: [
+        {
+          path: 'evenement_list',
+          element: <CalendarEventPage />
+        }
+      ]
+    },
     {
       path: 'sample-page',
       element: <SamplePage />
@@ -123,7 +138,7 @@ const MainRoutes = {
      path: '/',
      children: [
        {
-         path: 'equipe',
+         path: 'enregistrement',
          element: <EquipePage />
        }
      ]
@@ -138,20 +153,64 @@ const MainRoutes = {
     ]
   },
   {
+    path: '/',
+    children: [
+      {
+        path: 'panel',
+        element: <KarateScorePanel />
+      }
+    ]
+  },
+  {
+    path: '/',
+    children: [
+      {
+        path: 'evenements',
+        element: <EventPageList />
+      }
+    ]
+  },
+
+  {
+    path: '/',
+    children: [
+      {
+        path: 'club_registration',
+        element: <ClubPage/>
+      }
+    ]
+  },
+
+
+  {
+    path: '/',
+    children: [
+      {
+        path: 'calendar',
+        element: <CalendarPage/>
+      }
+    ]
+  },
+  {
     path: 'List-athlete',
     element: <ListeAthlete />
   },
-  ,
   {
-    path: 'List-arbitre',
+    path: 'list_total_athlete',
+    element: <ListeAthleteTotal />
+  },
+  
+  
+  {
+    path: 'list_par_club',
     element: <ListeArbitre />
   },
-  ,
+  
   {
     path: 'List-coach',
     element: <ListeCoach />
   },
-  ,
+  
   {
     path: 'List-officiel',
     element: <ListeOfficiel />

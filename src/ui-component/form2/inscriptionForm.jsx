@@ -1,167 +1,36 @@
-import React, { useState } from 'react';
-import {
-    Checkbox,
-  Col,
-  Row,
-  Button,
-  Cascader,
-  DatePicker,
-  Form,
-  Input,
-  InputNumber,
-  Mentions,
-  Select,
-  TreeSelect,
-  Segmented,
-  Divider,
-  Typography,
-} from 'antd';
-import SecondForm from './flexform';
-import { color } from '@mui/system';
-import { blue } from '@mui/material/colors';
-import ItemForm from './iteminscript';
-const { RangePicker } = DatePicker;
-const formItemLayout = {
-  labelCol: {
-    xs: {
-      span: 24,
-    },
-    sm: {
-      span: 6,
-    },
-  },
-  wrapperCol: {
-    xs: {
-      span: 24,
-    },
-    sm: {
-      span: 14,
-    },
-  },
-};
-const InscriptiontFom = () => {
-  const [componentVariant, setComponentVariant] = useState('filled');
-  const onFormVariantChange = ({ variant }) => {
-    setComponentVariant(variant);
-  };
+import React from 'react';
+import { Card, Row, Col } from 'antd';
+import { TeamOutlined, UsergroupAddOutlined, TrophyOutlined, IdcardOutlined } from '@ant-design/icons';
+import { Link } from 'react-router-dom';
+import './OptionsPage.css';
+
+const options = [
+  { title: 'Club', path: '/club_registration', icon: <TeamOutlined /> },
+  { title: 'Évènement', path: '/evenement', icon: <UsergroupAddOutlined /> },
+  { title: 'Athlète', path: '/athletes', icon: <TrophyOutlined /> },
+  { title: 'Officiel', path: '/officiel', icon: <IdcardOutlined /> },
+];
+
+const OptionsPage = () => {
   return (
-
-
-    <Form
-      {...formItemLayout}
-      onValuesChange={onFormVariantChange}
-      variant={componentVariant}
-      style={{
-        maxWidth: 3000,
-      }}
-      initialValues={{
-        variant: componentVariant,
-      }}
-    >
-      <Form.Item label="Form variant" name="variant">
-        <Segmented options={['outlined', 'filled', 'borderless']} />
-      </Form.Item>
-
-      <Form.Item
-        label="Nom de l'équipe"
-        name="Input"
-        rules={[
-          {
-            required: true,
-            message: 'Please input!',
-          },
-        ]}
-      >
-        <Input />
-      </Form.Item>
-
-
-      <Form.Item
-        label="Nom du Coach/Entraineur"
-        name="input"
-        rules={[
-          {
-            required: true,
-            message: 'Please input!',
-          },
-        ]}
-      >
-        <Input />
-      </Form.Item>
-
-
-      <Form.Item
-        label="Nom du Capitaine"
-        name="Input"
-        rules={[
-          {
-           
-            message: 'Please input!',
-          },
-        ]}
-      >
-        <Input />
-      </Form.Item>
-
-      <Form.Item
-        label="Email"
-        name="Input"
-        type ="mail"
-        rules={[
-          {
-            required: false,
-            message: 'Please input!',
-          },
-        ]}
-      > 
-      <Input />
-       
-      </Form.Item>
-
-      <Form.Item
-        name="Input"
-        label="Inscription des athlètes"
-        rules={[
-          {
-           
-            message: 'Please input!',
-          },
-        ]}
-      >
-        < ItemForm 
-        style={{
-        maxWidth: 5000,
-      }}/>
-      </Form.Item>
-
-      <Form.Item
-        name="Input"
-        label="Équipe médicale"
-        rules={[
-          {
-           
-            message: 'Please input!',
-          },
-        ]}
-      >
-        <Input />
-      </Form.Item>
-
-      <Form.Item
-        wrapperCol={{
-          offset: 6,
-          span: 16,
-        }}
-      >
-        <Button type="primary" htmlType="submit">
-          Créer l'évènement
-        </Button>
-      </Form.Item>
-      <Divider />
-
-    </Form>
-      
-    
+    <div className="options-container">
+      <h1 className="page-title">Enregistrements</h1>
+      <Row gutter={[16, 16]} justify="center">
+        {options.map((option) => (
+          <Col key={option.title} xs={24} sm={12} md={8} lg={6}>
+            <Link to={option.path}>
+              <Card hoverable className="option-card">
+                <div className="card-content">
+                  <div className="icon">{option.icon}</div>
+                  <h3>{option.title}</h3>
+                </div>
+              </Card>
+            </Link>
+          </Col>
+        ))}
+      </Row>
+    </div>
   );
 };
-export default InscriptiontFom;
+
+export default OptionsPage;

@@ -1,0 +1,174 @@
+/* Styles globaux */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f0f2f5;
+  margin: 0;
+  padding: 0;
+}
+
+/* Header */
+.ant-layout-header {
+  background-color: #001f3f;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.ant-menu-dark {
+  background-color: #001f3f;
+}
+
+.ant-menu-dark .ant-menu-item:hover,
+.ant-menu-dark .ant-menu-item-active {
+  background-color: #FF4136;
+  color: #fff;
+}
+
+.ant-menu-dark .ant-menu-item-selected {
+  background-color: #FF4136;
+  color: #fff;
+}
+
+.header-logo {
+  color: #FF4136;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Hero Section */
+.hero-section {
+  padding: 50px;
+  background-image: url('https://via.placeholder.com/1200x600');
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  color: #fff;
+}
+
+.hero-overlay {
+  background-color: rgba(0, 31, 63, 0.5);
+  padding: 100px 0;
+  color: #fff;
+}
+
+.hero-title {
+  color: #FF4136;
+  font-size: 48px;
+  font-weight: bold;
+}
+
+.hero-buttons {
+  margin: 10px;
+}
+
+/* Section Actualités et Performances */
+.ant-card-hoverable {
+  transition: transform 0.2s ease;
+}
+
+.ant-card-hoverable:hover {
+  transform: translateY(-5px);
+}
+
+.news-section .ant-card-meta-title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.news-section .ant-card-meta-description {
+  font-size: 14px;
+  color: #555;
+}
+
+/* Boutique */
+.boutique-section {
+  padding: 50px;
+  background-color: #f0f2f5;
+}
+
+.product-image {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.product-info {
+  padding: 20px;
+}
+
+.product-name {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.product-description {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.shop-now-button {
+  background-color: #FF4136;
+  color: #fff;
+  border: none;
+}
+
+.shop-now-button:hover {
+  background-color: #d93636;
+  color: #fff;
+}
+
+/* Prochain Événement */
+.event-section {
+  padding: 50px;
+  background-color: #fff;
+}
+
+.event-image {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.event-logo {
+  margin-bottom: 20px;
+}
+
+.event-details {
+  font-size: 16px;
+}
+
+/* Événements à venir */
+.upcoming-events-section {
+  padding: 50px;
+  background-color: #f0f2f5;
+}
+
+.ant-list-item {
+  border-bottom: 1px solid #d9d9d9;
+}
+
+.ant-list-item-meta-avatar {
+  margin-right: 16px;
+}
+
+.upcoming-event-image {
+  width: 100px;
+  height: auto;
+}
+
+/* Footer */
+footer {
+  background-color: #001f3f;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+footer a {
+  color: #FF4136;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: #ff6347;
+}
+
