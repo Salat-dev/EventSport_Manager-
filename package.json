@@ -5,7 +5,8 @@
   "author": {
     "name": "CodedThemes",
     "email": "CodedThemes@gmail.com",
-    "url": "https://codedthemes.com/"
+    "url": "https://codedthemes.com/",
+    "proxy": "http://localhost:3333"
   },
   "homepage": "https://berrydashboard.io/free",
   "scripts": {
@@ -33,9 +34,13 @@
     "@vitejs/plugin-react": "^4.2.1",
     "antd": "^5.20.0",
     "apexcharts": "^3.46.2",
+    "axios": "^1.7.7",
     "env-cmd": "^10.1.0",
+    "file-saver": "^2.0.5",
     "formik": "^2.4.5",
     "framer-motion": "^11.0.6",
+    "html2canvas": "^1.4.1",
+    "jspdf": "^2.5.2",
     "material-ui-popup-state": "^5.0.10",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",

@@ -15,9 +15,9 @@ const inscription = {
   children: [
     {
       id: 'default',
-      title: 'Inscrire une équipe',
+      title: 'Ajouter',
       type: 'item',
-      url: '/equipe',
+      url: '/enregistrement',
       breadcrumbsClasses: true
     }
   ]

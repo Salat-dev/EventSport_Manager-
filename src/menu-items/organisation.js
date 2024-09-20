@@ -33,7 +33,7 @@ const organisation= {
       id: 'util-color',
       title: 'Billeterie',
       type: 'item',
-      url: '',
+      url: 'panel',
       icon: icons.ConfirmationNumberOutlinedIcon,
       breadcrumbs: false
     },
@@ -48,7 +48,7 @@ const organisation= {
           id: 'login3',
           title: 'Hotel',
           type: 'item',
-          url: '',
+          url: 'tirage',
         breadcrumbsClasses: false ,
               
             },

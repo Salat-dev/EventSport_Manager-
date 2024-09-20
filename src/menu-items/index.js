@@ -12,7 +12,7 @@ import inscription from './Inscrire équipe';
 // ==============================|| MENU ITEMS ||============================== //
 
 const menuItems = {
-  items: [event, inscription, dashboard,participant,organisation, tools ,pages, utilities, other]
+  items: [ event, inscription, dashboard,participant,organisation, tools ,pages, utilities, other]
 };
 
 export default menuItems;
