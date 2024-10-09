@@ -1,0 +1,32 @@
+.fc-event {
+    background-color: #87d068 !important;
+    border-radius: 5px !important;
+    padding: 5px;
+  }
+  
+  .fc-event.fc-event-draft {
+    background-color: #ffd666 !important;
+  }
+  
+  .fc-event.fc-event-past {
+    background-color: #d9d9d9 !important;
+  }
+  
+  .ant-modal-content {
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .ant-btn {
+    border-radius: 5px;
+  }
+  
+  .custom-modal .ant-modal-header {
+    background-color: #f0f2f5;
+    border-radius: 10px 10px 0 0;
+  }
+  
+  .custom-modal .ant-modal-footer {
+    border-top: none;
+  }
+  

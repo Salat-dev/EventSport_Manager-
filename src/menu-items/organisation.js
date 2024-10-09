@@ -25,7 +25,7 @@ const organisation= {
       id: 'util-typography',
       title: 'Organisateurs',
       type: 'item',
-      url: '',
+      url: '/panel',
       icon: icons. GroupsIcon,
       breadcrumbs: false
     },
@@ -33,7 +33,7 @@ const organisation= {
       id: 'util-color',
       title: 'Billeterie',
       type: 'item',
-      url: 'panel',
+      url: 'evenement_ticket',
       icon: icons.ConfirmationNumberOutlinedIcon,
       breadcrumbs: false
     },

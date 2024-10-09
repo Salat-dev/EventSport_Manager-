@@ -12,7 +12,7 @@ import ListAltRounded from '@mui/icons-material/ListAltRounded';
 
 
 const CalendarPage = () => (
-  <MainCard title="Enregistrez les Informations de l'arbitre" >
+  <MainCard title="Créez vos prochains évènements" >
    
    <Link to="/evenement_list">
       <Button 

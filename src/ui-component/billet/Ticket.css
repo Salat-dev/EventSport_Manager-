@@ -1,0 +1,53 @@
+.ticket-container {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .ticket {
+    background-color: #fff;
+    width: 800px;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch; /* Assure que toutes les colonnes prennent la même hauteur */
+    border: 2px solid black;
+  }
+  
+  .ticket-left {
+    background-color: #000;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* Occupe tout l'espace disponible dans la colonne */
+  }
+  
+  .ticket-center {
+    padding: 20px;
+    text-align: left;
+    width: 100%;
+  }
+  
+  .ticket-right {
+    padding: 20px;
+    text-align: center;
+    border-left: 2px dashed black;
+    width: 100%;
+  }
+  
+  .barcode-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .seat-info {
+    margin-top: 20px;
+  }
+  
+  .seat-info p {
+    margin: 5px 0;
+  }
+  

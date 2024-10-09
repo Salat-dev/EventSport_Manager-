@@ -69,7 +69,7 @@ const OfficialForm = () => {
   };
 
   return (
-    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '90vh' }}>
       <Card style={{ width: '60%', padding: '2rem', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }}>
         <h2 style={{ textAlign: 'center' }}>Inscription Officiel</h2>
         <Form form={form} layout="vertical" onFinish={onFinish}>

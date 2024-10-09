@@ -12,7 +12,7 @@ import { Link } from 'react-router-dom';
 // ==============================|| SAMPLE PAGE ||============================== //
 
 const EventPage = () => (
-  <MainCard title="Enregistrez les Informations de l'athlète" >
+  <MainCard title="Enregistrez un évènement" >
    <Link to="/evenements">
       <Button 
         type="primary"

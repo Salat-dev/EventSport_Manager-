@@ -14,7 +14,7 @@ const ListAthlet = () => {
           dataSource={[
             { title: 'Liste Totale', filter: 'total', path: '/list_total_athlete' },
             { title: 'Liste par Club', filter: 'club', path: '/list_par_club' },
-            { title: 'Liste par Catégorie', filter: 'category', path: '/athletes/category' },
+            { title: 'Liste par Catégorie', filter: 'category', path: '/list_par_categories' },
             { title: 'Liste par Club/Catégorie', filter: 'club-category', path: '/athletes/club-category' },
           ]}
           renderItem={item => (

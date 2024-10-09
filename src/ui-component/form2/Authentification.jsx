@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { Form, Input, Button, Select, message, Row, Col, Card } from 'antd';
-import { useNavigate } from 'react-router-dom';
+import { Form, Input, Button, Select, message, Card } from 'antd';
+import { useNavigate, Link } from 'react-router-dom';
 import { createClient } from '@supabase/supabase-js';
-import illustration from './illustration.png'; // Assurez-vous de mettre l'image correcte ici
+import LOGO from '../LOGO.png'; // Assurez-vous de mettre l'image correcte ici
 
 const { Option } = Select;
 
@@ -33,7 +33,6 @@ const AuthenticationForm = () => {
       message.error('Échec de la connexion.');
       return;
     }
-   
 
     if (data.role !== role) {
       setLoading(false);
@@ -78,65 +77,72 @@ const AuthenticationForm = () => {
         }}
         bodyStyle={{ padding: 0 }}
       >
-        {/* Illustration à gauche */}
-        <div style={{ flex: 1, backgroundColor: '#f5f5f5', display: 'flex', alignItems: 'left', justifyContent: 'center' }}>
+        {/* LOGO à gauche */}
+        <div style={{ flex: 1, backgroundColor: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <img
-            src={illustration}
-            alt="Illustration d'authentification"
-            style={{ width: '55%', height: 'auto', objectFit: 'cover' }}
+            src={LOGO}
+            alt="LOGO d'authentification"
+            style={{ width: '50%', height: 'auto' }}
           />
+<div style={{ flex: 1, padding: '30px' }}>
+          <h2 style={{ textAlign: 'center', marginBottom: '30px' }}>Connexion</h2>
 
-          {/* Formulaire à droite */}
-          <div style={{ flex: 1, padding: '30px' }}>
-            <h2 style={{ textAlign: 'center', marginBottom: '30px' }}>Connexion</h2>
-
-            <Form
-              form={form}
-              name="authForm"
-              onFinish={onFinish}
-              layout="vertical"
-              style={{ width: '100%' }}
+          <Form
+            form={form}
+            name="authForm"
+            onFinish={onFinish}
+            layout="vertical"
+            style={{ width: '110%' }}
+          >
+            {/* Adresse e-mail */}
+            <Form.Item
+              label="Adresse e-mail"
+              name="username"
+              rules={[{ required: true, message: 'Veuillez entrer votre adresse e-mail!' }]}
             >
-              {/* Adresse e-mail */}
-              <Form.Item
-                label="Adresse e-mail"
-                name="username"
-                rules={[{ required: true, message: 'Veuillez entrer votre adresse e-mail!' }]}
-              >
-                <Input />
-              </Form.Item>
+              <Input />
+            </Form.Item>
 
-              {/* Mot de passe */}
-              <Form.Item
-                label="Mot de passe"
-                name="password"
-                rules={[{ required: true, message: 'Veuillez entrer votre mot de passe!' }]}
-              >
-                <Input.Password />
-              </Form.Item>
+            {/* Mot de passe */}
+            <Form.Item
+              label="Mot de passe"
+              name="password"
+              rules={[{ required: true, message: 'Veuillez entrer votre mot de passe!' }]}
+            >
+              <Input.Password />
+            </Form.Item>
 
-              {/* Rôle */}
-              <Form.Item
-                label="Rôle"
-                name="role"
-                rules={[{ required: true, message: 'Veuillez sélectionner votre rôle!' }]}
-              >
-                 <Select placeholder="Sélectionnez un rôle">
-                <Select.Option value="manager">Manager de l'événement</Select.Option>
-                <Select.Option value="visitor">Visiteur</Select.Option>
-                <Select.Option value="federation_member">Membre de la fédération</Select.Option>
-                <Select.Option value="coach">Coach</Select.Option>
+            {/* Rôle */}
+            <Form.Item
+              label="Rôle"
+              name="role"
+              rules={[{ required: true, message: 'Veuillez sélectionner votre rôle!' }]}
+            >
+              <Select placeholder="Sélectionnez un rôle">
+                <Option value="manager">Manager de l'événement</Option>
+                <Option value="visitor">Visiteur</Option>
+                <Option value="federation_member">Membre de la fédération</Option>
+                <Option value="coach">Coach</Option>
               </Select>
-              </Form.Item>
+            </Form.Item>
 
-              <Form.Item>
-                <Button type="primary" htmlType="submit" loading={loading} style={{ width: '100%' }}>
-                  Se connecter
-                </Button>
-              </Form.Item>
-            </Form>
-          </div>
+            <Form.Item>
+              <Button type="primary" htmlType="submit" loading={loading}     style={{ backgroundColor: '#c01c15', borderColor: '#c01c15',width: '100%'  }}>
+                Se connecter
+              </Button>
+            </Form.Item>
+
+            {/* Lien Créer un compte */}
+            <div style={{ textAlign: 'center', marginTop: '10px' }}>
+              <span>Pas encore de compte ? <Link to="/registration">Créer un compte</Link></span>
+            </div>
+          </Form>
         </div>
+
+        </div>
+
+        {/* Formulaire à droite */}
+        
       </Card>
     </div>
   );
