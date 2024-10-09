@@ -15,7 +15,7 @@ import ClubForm from 'ui-component/form2/clubform';
 // ==============================|| SAMPLE PAGE ||============================== //
 
 const ClubPage = () => (
-  <MainCard title="Enregistrez les Informations de l'athlète" >
+  <MainCard title="Enregistrez un Club" >
     <Button  style={{ position: 'relative', top: '-80px', marginLeft: '700px' }} variant="contained" startIcon={<ListAltRoundedIcon />}>
  Afficher la Liste
 </Button>

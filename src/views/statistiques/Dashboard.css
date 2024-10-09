@@ -1,0 +1,55 @@
+.dashboard-container {
+    padding: 20px;
+    background-color: #f0f2f5; /* Couleur de fond légère */
+  }
+  
+  .ant-card {
+    border-radius: 10px; /* Coins arrondis pour un effet moderne */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Ombre douce */
+    transition: all 0.3s ease;
+  }
+  
+  .ant-card:hover {
+    transform: translateY(-5px); /* Légère élévation au survol */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); /* Ombre plus marquée au survol */
+  }
+  
+  .ant-statistic {
+    text-align: center; /* Centrer le contenu des statistiques */
+  }
+  
+  .ant-row {
+    margin-bottom: 20px; /* Espacement entre les rangées de cartes */
+  }
+  
+  .ant-col {
+    margin-bottom: 20px; /* Espacement entre les colonnes de cartes */
+  }
+  
+  .ant-card-head-title {
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .ant-col {
+      flex-basis: 100%; /* Ajuste la largeur des colonnes sur petits écrans */
+      max-width: 100%;
+    }
+  }
+  
+  @media screen and (min-width: 769px) and (max-width: 1200px) {
+    .ant-col {
+      flex-basis: 50%; /* Ajuste la largeur des colonnes sur des écrans moyens */
+      max-width: 50%;
+    }
+  }
+  
+  @media screen and (min-width: 1201px) {
+    .ant-col {
+      flex-basis: 33.33%; /* Ajuste la largeur des colonnes sur grands écrans */
+      max-width: 33.33%;
+    }
+  }
+  

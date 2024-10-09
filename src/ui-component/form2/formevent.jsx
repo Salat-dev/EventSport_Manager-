@@ -125,7 +125,7 @@ const EventForm = () => {
             <Segmented options={['outlined', 'filled', 'borderless']} />
           </Form.Item>
 
-          <Form.Item label="*INFORMATIONS DE L'ÉVÈNEMENT" />
+          <Form.Item label="*DONNÉE DE L'ÉVÈNEMENT" />
 
           <Form.Item
             label="Titre de l'évènement"
@@ -175,7 +175,7 @@ const EventForm = () => {
             <DatePicker />
           </Form.Item>
 
-          <Form.Item label="*INFORMATIONS SUPLÉMENTAIRES" style={{ color: 'red' }} />
+          <Form.Item label="*DONNÉE SUPLÉMENTAIRES" style={{ color: 'red' }} />
 
           <Form.Item label="Moyen de transport" name="transport">
             <Input />

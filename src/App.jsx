@@ -12,6 +12,8 @@ import themes from 'themes';
 
 // project imports
 import NavigationScroll from 'layout/NavigationScroll';
+import './index.css';  // Import du fichier CSS avec Tailwind
+
 
 // ==============================|| APP ||============================== //
 

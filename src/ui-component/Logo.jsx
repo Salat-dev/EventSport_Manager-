@@ -10,19 +10,19 @@ import { useTheme } from '@mui/material/styles';
  */
 
 import LoGo5 from '../ui-component/LoGo5.png';
+import LOGO from './LOGO.png'
 
 // ==============================|| LOGO SVG ||============================== //
 
 const Logo = () => {
- // const theme = useTheme();
+  const theme = useTheme();
 
   return (
     
   //    <img src={LoGo5} alt="Berry" width="70" height="70"/>
-  //<img src={LoGo5} alt="Berry" width="100px" />
-  <div>
-    
-  </div>
+<img src={LOGO} alt="Berry" width="30%" />
+ 
+ 
    
   );
 };

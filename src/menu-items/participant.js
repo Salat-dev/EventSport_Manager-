@@ -116,7 +116,7 @@ const pages = {
           id: 'register3',
           title: 'Tirage au sort',
           type: 'item',
-          url: '',
+          url: 'tirage',
           breadcrumbs: false ,    
         }
       ]

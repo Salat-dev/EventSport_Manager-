@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
+import timeGridPlugin from '@fullcalendar/timegrid'; // Importer le plugin pour la vue semaine
 import interactionPlugin from '@fullcalendar/interaction';
-import { Modal, Button, Input, DatePicker, Form, message, Spin } from 'antd';
+import { Modal, Button, Input, DatePicker, Form, message, Spin, List } from 'antd';
 import { createClient } from '@supabase/supabase-js';
 import { CalendarOutlined, ClockCircleOutlined, EnvironmentOutlined } from '@ant-design/icons';
 import moment from 'moment';
+import './calendar.css'; // Importez le fichier CSS personnalisé
 
 // Initialisation de Supabase
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
@@ -18,10 +20,12 @@ const KarateCalendar = () => {
   const [isDraft, setIsDraft] = useState(false);
   const [loading, setLoading] = useState(false);
   const [form] = Form.useForm();
-  const [clickedEvent, setClickedEvent] = useState(null); // Événement sélectionné lors du clic
-  const [editMode, setEditMode] = useState(false); // Indique si l'on modifie un événement
+  const [clickedEvent, setClickedEvent] = useState(null);
+  const [editMode, setEditMode] = useState(false);
+  const [listModalVisible, setListModalVisible] = useState(false);
+  const [viewMode, setViewMode] = useState('dayGridMonth'); // Mode de vue actuel
 
-  // Charger les événements depuis Supabase
+  //insert element
   useEffect(() => {
     const fetchEvents = async () => {
       const { data, error } = await supabase.from('events_calendar').select('*');
@@ -31,7 +35,7 @@ const KarateCalendar = () => {
         title: event.title,
         start: event.period_start,
         end: event.period_end,
-        color: getEventColor(event), // Fonction pour définir la couleur de l'événement
+        color: getEventColor(event),
         ...event,
       })));
     };
@@ -39,15 +43,15 @@ const KarateCalendar = () => {
   }, []);
 
   const getEventColor = (event) => {
-    if (event.is_archived) return 'blue'; // Couleur pour les événements archivés
-    if (event.is_draft) return 'yellow'; // Couleur pour les brouillons
-    if (new Date(event.period_end) < new Date()) return 'lightgray'; // Couleur pour les événements passés
-    return 'green'; // Couleur par défaut pour les événements à jour
+    if (event.is_archived) return 'blue';
+    if (event.is_draft) return 'lightgoldenrodyellow';
+    if (new Date(event.period_end) < new Date()) return 'lightgray';
+    return 'lightgreen';
   };
 
   const handleDateClick = () => {
     form.resetFields();
-    setEditMode(false); // Mode création
+    setEditMode(false);
     setModalVisible(true);
   };
 
@@ -61,11 +65,10 @@ const KarateCalendar = () => {
         period_end: values.period[1].format('YYYY-MM-DD HH:mm'),
         location: values.location,
         is_draft: isDraft,
-        is_archived: false, // Ajoutez ici pour la gestion de l'archivage si nécessaire
+        is_archived: false,
       };
 
       if (editMode && clickedEvent) {
-        // Mise à jour de l'événement existant
         const { error } = await supabase
           .from('events_calendar')
           .update(eventData)
@@ -75,11 +78,8 @@ const KarateCalendar = () => {
         setEvents(events.map(e => (e.id === clickedEvent.id ? { ...e, ...eventData } : e)));
         message.success('Événement modifié avec succès !');
       } else {
-        // Création d'un nouvel événement
         const { data, error } = await supabase.from('events_calendar').insert([eventData]);
-
         if (error) throw error;
-
         setEvents([...events, { ...eventData, start: eventData.period_start, end: eventData.period_end }]);
         message.success(isDraft ? 'Brouillon enregistré avec succès !' : 'Événement créé avec succès !');
       }
@@ -96,7 +96,7 @@ const KarateCalendar = () => {
 
   const handleEventClick = (info) => {
     setClickedEvent(info.event);
-    setEditMode(false); // Mode affichage
+    setEditMode(false);
   };
 
   const handleDeleteEvent = async () => {
@@ -105,7 +105,6 @@ const KarateCalendar = () => {
         .from('events_calendar')
         .delete()
         .eq('id', clickedEvent.id);
-
       if (error) throw error;
 
       setEvents(events.filter(e => e.id !== clickedEvent.id));
@@ -118,36 +117,55 @@ const KarateCalendar = () => {
   };
 
   const handleEditEvent = () => {
-    setEditMode(true); // Passer en mode édition
+    setEditMode(true);
     form.setFieldsValue({
       title: clickedEvent.title,
       description: clickedEvent.extendedProps.description,
       period: [moment(clickedEvent.start), moment(clickedEvent.end)],
       location: clickedEvent.extendedProps.location,
     });
-    setModalVisible(true); // Ouvrir la modal de modification
+    setModalVisible(true);
   };
 
   const closeModal = () => {
     setClickedEvent(null);
   };
 
+  const toggleListModal = () => {
+    setListModalVisible(!listModalVisible);
+  };
+
   return (
     <div>
+      <div style={{ textAlign: 'center', marginBottom: '10px' }}>
+        <Button onClick={() => { setViewMode('dayGridMonth'); }} style={{ margin: '0 10px' }}>Mois</Button>
+        <Button onClick={() => { setViewMode('timeGridWeek'); }} style={{ margin: '0 10px' }}>Semaine</Button>
+        <Button onClick={() => { setViewMode('timeGridDay'); }} style={{ margin: '0 10px' }}>Aujourd'hui</Button>
+        <Button onClick={toggleListModal} style={{ margin: '0 10px' }}>Liste des événements</Button>
+      </div>
+
       <FullCalendar
-        plugins={[dayGridPlugin, interactionPlugin]}
-        initialView="dayGridMonth"
+        plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
+        initialView={viewMode}
         events={events}
         dateClick={handleDateClick}
         eventClick={handleEventClick}
+        eventClassNames={(arg) =>
+          arg.event.extendedProps.is_draft
+            ? 'fc-event fc-event-draft'
+            : new Date(arg.event.end) < new Date()
+            ? 'fc-event fc-event-past'
+            : 'fc-event'
+        }
       />
 
       {/* Modal pour créer ou modifier un événement */}
       <Modal
-        title={editMode ? "Modifier l'événement" : "Créer un événement de karaté"}
+        title={editMode ? 'Modifier l\'événement' : 'Créer un événement de karaté'}
         visible={modalVisible}
         onCancel={() => setModalVisible(false)}
         footer={null}
+        className="custom-modal"
       >
         <Spin spinning={loading}>
           <Form form={form} onFinish={handleSaveEvent}>
@@ -192,14 +210,37 @@ const KarateCalendar = () => {
             </Button>,
             <Button key="close" onClick={closeModal}>
               Fermer
-            </Button>
+            </Button>,
           ]}
         >
-          <p><CalendarOutlined /> <strong>Période:</strong> Début: {moment(clickedEvent.start).format('YYYY-MM-DD HH:mm')} / Fin: {moment(clickedEvent.end).format('YYYY-MM-DD HH:mm')}</p>
+          <p>
+            <CalendarOutlined /> <strong>Période:</strong> Début: {moment(clickedEvent.start).format('YYYY-MM-DD HH:mm')} / Fin: {moment(clickedEvent.end).format('YYYY-MM-DD HH:mm')}
+          </p>
           <p><EnvironmentOutlined /> <strong>Lieu:</strong> {clickedEvent.extendedProps.location}</p>
           <p><ClockCircleOutlined /> <strong>État:</strong> {clickedEvent.extendedProps.is_draft ? 'Brouillon' : new Date(clickedEvent.end) < new Date() ? 'Terminé' : 'À venir'}</p>
         </Modal>
       )}
+
+      {/* Modal de liste des événements */}
+      <Modal
+        title="Liste des événements"
+        visible={listModalVisible}
+        onCancel={toggleListModal}
+        footer={<Button onClick={toggleListModal}>Fermer</Button>}
+      >
+        <List
+          bordered
+          dataSource={events}
+          renderItem={event => (
+            <List.Item>
+              <div>
+                <strong>{event.title}</strong>
+                <p>{moment(event.period_start).format('YYYY-MM-DD HH:mm')} - {moment(event.period_end).format('YYYY-MM-DD HH:mm')}</p>
+              </div>
+            </List.Item>
+          )}
+        />
+      </Modal>
     </div>
   );
 };

@@ -9,6 +9,8 @@ const AthleteForm = () => {
   const [form] = Form.useForm();
   const [loading, setLoading] = useState(false);
   const [clubs, setClubs] = useState([]);
+  const [kumite_categories, setKumite_categories] = useState([]);
+
   const [imageUrl, setImageUrl] = useState(null);
   const [uploading, setUploading] = useState(false);
 
@@ -22,8 +24,25 @@ const AthleteForm = () => {
         setClubs(data);
       }
     };
+
+    const fetchCategory = async () => {
+      const { data, error } = await supabase.from('kumite_categories').select(' weight_category');
+      if (error) {
+        message.error('Erreur lors de la récupération des categories');
+      } else {
+        setKumite_categories(data);
+      }
+    };
+
     fetchClubs();
-  }, []);
+    fetchCategory();
+  }, 
+  
+  
+  
+  []);
+
+  
 
   // Gérer l'upload d'image
   const handleImageUpload = async ({ file, onSuccess, onError }) => {
@@ -84,7 +103,7 @@ const AthleteForm = () => {
   };
 
   return (
-    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '120vh' }}>
+    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '90vh' }}>
       <Card style={{ width: '60%', padding: '2rem', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }}>
         <h2 style={{ textAlign: 'center' }}>Inscription Athlète</h2>
         <Form form={form} layout="vertical" onFinish={onFinish}>
@@ -132,11 +151,17 @@ const AthleteForm = () => {
           </Form.Item>
 
           <Form.Item
-            label="Poids"
+            label="Categories"
             name="weight"
             rules={[{ required: true, message: 'Veuillez entrer le poids de l\'athlète' }]}
           >
-            <Input placeholder="Poids" />
+          <Select placeholder="Sélectionner un club">
+              {kumite_categories.map((club, index) => (
+                <Option key={index} value={club. weight_category}>
+                  {club. weight_category}
+                </Option>
+              ))}
+            </Select>
           </Form.Item>
           <Form.Item
             label="Date de naissance"

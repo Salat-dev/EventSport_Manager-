@@ -6,7 +6,7 @@ import Loadable from 'ui-component/Loadable';
 import CoachPage from 'views/participant-page/coach';
 import OfficielPage from 'views/participant-page/officiel';
 import ArbitrePage from 'views/participant-page/arbitre';
-import StatBoard from 'views/statistiques';
+import Dashboard from 'views/statistiques';
 import ListeAthlete from 'views/liste-participant/List-athlete';
 //import Tirage from 'views/Tirage_au_sort/liste_option';
 import ListeArbitre from 'views/liste-participant/list_par_club';
@@ -21,6 +21,10 @@ import CalendarEventPage from 'views/calendar/evenement_list';
 import EquipePage from 'views/participant-page/enregistrement';
 import ClubPage from 'views/participant-page/club_registration';
 import ListeAthleteTotal from 'views/liste-participant/list_total_athlete';
+import TiketPageCustom from 'views/liste-participant/TicketCustom/TicketPage';
+import TiketlandingPage from 'views/liste-participant/TicketCustom/evenement_ticket';
+import Tirage from 'views/panel/tirage';
+import ListeCategorie from 'views/liste-participant/list_par_categories';
 //import AthletePage from 'views/participant/athletes';
 
 // dashboard routing
@@ -46,14 +50,14 @@ const MainRoutes = {
   children: [
     {
       path: '/',
-      element: <StatBoard />
+      element: <Dashboard />
     },
     {
       path: 'dashboard',
       children: [
         {
           path: 'default',
-          element: <StatBoard />
+          element: <Dashboard />
         }
       ]
     },
@@ -210,10 +214,28 @@ const MainRoutes = {
     path: 'List-coach',
     element: <ListeCoach />
   },
-  
   {
     path: 'List-officiel',
     element: <ListeOfficiel />
+  }
+  ,
+  {
+    path: 'TicketPage',
+    element: <TiketPageCustom />
+  }
+  ,
+  {
+    path: 'evenement_ticket',
+    element: <TiketlandingPage />
+  },
+  {
+    path: 'tirage',
+    element: <Tirage />
+  }
+  ,
+  {
+    path: 'list_par_categories',
+    element: <ListeCategorie />
   }
     
   ]

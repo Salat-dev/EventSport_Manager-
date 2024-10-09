@@ -1,0 +1,24 @@
+.ticket-design-container {
+  padding: 20px;
+  max-width: 600px;
+  margin: auto;
+}
+
+.ticket-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ticket {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  width: 100%;
+  background-color: #f9f9f9;
+}
+
+.barcode-section {
+  text-align: center;
+  margin-top: 20px;
+}
