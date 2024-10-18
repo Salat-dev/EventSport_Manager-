@@ -8,7 +8,7 @@
     "url": "https://codedthemes.com/",
     "proxy": "http://localhost:3333"
   },
-  "homepage": "https://berrydashboard.io/free",
+  "homepage": "https://salat-dev.io/EventSport_Manager-",
   "scripts": {
     "start": "env-cmd -f .env vite",
     "build": "vite build",
