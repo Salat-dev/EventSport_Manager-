@@ -77,19 +77,12 @@ const pages = {
           icon: icons.EmojiEventsOutlinedIcon,
         breadcrumbs: false,
         children: [
-          {
-            id: 'util-typography',
-            title: 'Liste ',
-            type: 'item',
-            url: '/utils/util-typography',
-            icon: icons. GroupsIcon,
-            breadcrumbs: false
-          },
+         
           {
             id: 'util-color',
             title: 'Tirage au sort',
             type: 'item',
-            url: '/draws',
+            url: 'tirage',
             icon: icons.ConfirmationNumberIcon,
             breadcrumbs: false
           },
@@ -112,13 +105,7 @@ const pages = {
 
         ]      
             },
-        {
-          id: 'register3',
-          title: 'Tirage au sort',
-          type: 'item',
-          url: 'tirage',
-          breadcrumbs: false ,    
-        }
+        
       ]
     },
 

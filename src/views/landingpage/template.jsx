@@ -3,9 +3,10 @@ import { Layout, Menu, Button, Row, Col, Card, Typography, Space, Carousel, Tabl
 import { ShoppingCartOutlined, VideoCameraOutlined, TrophyOutlined, TeamOutlined, CalendarOutlined } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
 import Icon from '../../ui-component/Icon.svg';
-import { LoginOutlined, UserAddOutlined } from '@ant-design/icons'; // Import des icônes
+import { LoginOutlined, UserAddOutlined } from '@ant-design/icons';
 
-import hero from './img/hero.jpg'; // Chemin vers l'image importée
+import hero from './img/hero.jpg';
+
 
 const { Header, Content, Footer } = Layout;
 const { Title, Paragraph } = Typography;
@@ -18,15 +19,15 @@ const partners = [
 
 const columns = [
   { title: 'Nom', dataIndex: 'name', key: 'name' },
-  { title: 'Pays', dataIndex: 'country', key: 'country' },
+  { title: 'Clubs', dataIndex: 'country', key: 'country' },
   { title: 'Score', dataIndex: 'score', key: 'score' },
   { title: 'Médailles', dataIndex: 'medals', key: 'medals' },
 ];
 
 const athleteScores = [
-  { key: '1', name: 'John Doe', country: 'USA', score: 98, medals: '🥇🥈' },
-  { key: '2', name: 'Jane Smith', country: 'FR', score: 85, medals: '🥇🥉' },
-  { key: '3', name: 'Takashi Yamada', country: 'JP', score: 92, medals: '🥇🥇🥉' },
+  { key: '1', name: 'Joseph Tsala ', country: 'VBF', score: 98, medals: '🥇🥈' },
+  { key: '2', name: 'Jules Cesar', country: 'VBF', score: 85, medals: '🥇🥉' },
+  { key: '3', name: 'Ze Alpha', country: 'CKC', score: 92, medals: '🥇🥇🥉' },
 ];
 
 const upcomingEvents = [
@@ -129,8 +130,8 @@ const Landing = () => {
                 icon={<VideoCameraOutlined />}
                 size="large"
                 style={{ margin: '10px', backgroundColor: '#f5222d', borderColor: '#f5222d' }}
-              >
-                Regarder en live
+              >  
+              <Link to="/livescreem"> Regarder en live </Link>
               </Button>
               <Button
                 type="primary"
@@ -138,7 +139,8 @@ const Landing = () => {
                 size="large"
                 style={{ margin: '10px', backgroundColor: '#f5222d', borderColor: '#f5222d' }}
               >
-                Réserver un ticket
+             <Link to="/ticketreservation"> Reserver un ticket </Link>
+
               </Button>
             </div>
           </Col>

@@ -145,10 +145,11 @@ const RegistrationForm = () => {
 
                 <Form.Item
                   label="Mot de passe"
+            
                   name="password"
                   rules={passwordRules}
                   hasFeedback
-                >
+                > 
                   <Input.Password placeholder="Votre mot de passe" />
                 </Form.Item>
 

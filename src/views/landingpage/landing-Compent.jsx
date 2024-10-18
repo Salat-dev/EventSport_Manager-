@@ -1,7 +1,6 @@
 import React from 'react';
 import { Layout, Menu, Button, Input } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
-import LiveSection from './live-section';
 import SectionEvent from './sectio-event';
 import logo from './img/logo.svg'
 
@@ -53,7 +52,6 @@ const MenueList = () => {
       {/* Adding some content to scroll */}
       <Layout.Content style={{ marginTop: 64, padding: '0 50px' }}>
         <div style={{ height: 'auto', background: '#fff', padding: 24 }}>
-         <LiveSection/>
          <SectionEvent/>
         </div>
       </Layout.Content>

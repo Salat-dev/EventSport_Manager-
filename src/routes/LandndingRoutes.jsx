@@ -7,7 +7,9 @@ import RegistrationForm from 'ui-component/form2/Registration';
 import AthletesGrid from 'views/landingpage/athlete-grid';
 import EventPage from 'views/landingpage/create_event/create_event';
 import LandingPage from 'views/landingpage/landingpage';
+import LiveStreamingPage from 'views/landingpage/livescreem';
 import EventInfo from 'views/landingpage/sport-news';
+import TicketReservationPage from 'views/landingpage/ticketreservation';
 import KarateScorePanel from 'views/panel/panel';
 
 
@@ -36,6 +38,14 @@ const LandingRoutes = {
     {
       path: 'sport-news',
       element: <EventInfo/>
+    },
+    {
+      path: '/livescreem',
+      element: <LiveStreamingPage/>
+    },
+    {
+      path: '/ticketreservation',
+      element: <TicketReservationPage/>
     },
   ]
 };
