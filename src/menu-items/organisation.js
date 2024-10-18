@@ -23,7 +23,7 @@ const organisation= {
   children: [
     {
       id: 'util-typography',
-      title: 'Organisateurs',
+      title: 'Panel d\'arbitrage',
       type: 'item',
       url: '/panel',
       icon: icons. GroupsIcon,

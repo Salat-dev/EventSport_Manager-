@@ -9,9 +9,9 @@ import ClubAthleteList from 'ui-component/tableau/AthleteListclub';
 import TournamentDraw from 'ui-component/tirage/tirage';
 
 const Tirage = () => (
-  <MainCard title="Enregistrez les Informations de l'arbitre" >
+  <MainCard title="Tirage au sort" >
     <Button  style={{ position: 'relative', top: '-80px', marginLeft: '700px' }} variant="contained" startIcon={<ListAltRoundedIcon />}>
- Afficher la Liste
+ Afficher les resultats
 </Button>
     <TournamentDraw/>
 
